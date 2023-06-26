@@ -1,0 +1,80 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_core.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Exm.Master": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_exmmaster.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.ExperienceForms": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_experienceforms.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.MarketingAutomation": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_marketingautomation.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Master": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_master.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Messaging": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_messaging.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Engine.Storage": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_processingenginestorage.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Engine.Tasks": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_processingenginetasks.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Pools": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_processingpools.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Tasks": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_processingtasks.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.ReferenceData": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_referencedata.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Reporting": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_reporting.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Security": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_security.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Web": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Xdb.Collection.ShardMapManager": {
+        "scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_xdbcollectionshardmapmanager.sql:DatabaseName=databasename"
+        ],
+        "shard_scripts": [
+            "sitecore_sql_database_compatibility_level\\compatibility_level_xdbcollectionshard.sql:DatabaseName=databasename"
+        ]
+    }
+}

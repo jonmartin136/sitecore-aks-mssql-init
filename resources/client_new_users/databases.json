@@ -1,0 +1,254 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "[+]CreateUser.Core.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Exm.Master": {
+        "scripts": [
+            "[+]CreateUser.ExmMaster.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.ExperienceForms": {
+        "scripts": [
+            "[+]CreateUser.ExperienceForms.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.MarketingAutomation": {
+        "scripts": [
+            "[+]CreateUser.MarketingAutomation.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Master": {
+        "scripts": [
+            "[+]CreateUser.Master.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Messaging": {
+        "scripts": [
+            "[+]createuser_text_messaging.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Processing.Engine.Storage": {
+        "scripts": [
+            "[+]createuser_text_processingenginestorage.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Processing.Engine.Tasks": {
+        "scripts": [
+            "[+]createuser_text_processingenginetasks.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Processing.Pools": {
+        "scripts": [
+            "[+]CreateUser.ProcessingPools.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Processing.Tasks": {
+        "scripts": [
+            "[+]CreateUser.ProcessingTasks.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.ReferenceData": {
+        "scripts": [
+            "[+]CreateUser.ReferenceData.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Reporting": {
+        "scripts": [
+            "[+]createuser_text_reporting.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Web": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Xdb.Collection.ShardMapManager": {
+        "scripts": [
+            "[+]collectiondeployment\\CreateShardApplicationDatabaseServerLogin.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "[+]collectiondeployment\\CreateShardManagerApplicationDatabaseUser.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "shard_scripts": [
+            "[+]collectiondeployment\\CreateShardApplicationDatabaseUser.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.GeoReplication.Web1": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.GeoReplication.Web2": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.GeoReplication.WebShared": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Web1": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    },
+    "Sitecore.Web2": {
+        "scripts": [
+            "[+]CreateUser.Web.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    }
+}

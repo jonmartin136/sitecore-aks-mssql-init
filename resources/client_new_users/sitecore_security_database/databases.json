@@ -1,0 +1,24 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "[-]sitecore_security_database\\CreateUser.Core.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": ""
+        }
+    },
+    "Sitecore.Security": {
+        "scripts": [
+            "[+]sitecore_security_database\\CreateUser.Security.sql:UserName=username_secondary UserPassword=password_secondary DatabaseName=databasename",
+            "client_new_users\\CreateUser.(Support).sql:UserName=aadusername UserSID=aadusersid UserType=aadusertype"
+        ],
+        "variables": {
+            "username_secondary": "",
+            "password_secondary": "",
+            "aadusername": "",
+            "aadusersid": "",
+            "aadusertype": ""
+        }
+    }
+}

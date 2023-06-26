@@ -1,0 +1,11 @@
+{
+    "Sitecore.Security": {
+        "scripts": [
+            "[-]sitecore_admin_user_security_hardening\\SetSitecoreAdminPassword.sql:SitecoreAdminUserName=sitecoreadminusername SitecoreAdminUserPassword=sitecoreadminpassword"
+        ],
+        "variables": {
+            "sitecoreadminusername": "",
+            "sitecoreadminpassword": ""
+        }
+    }
+}

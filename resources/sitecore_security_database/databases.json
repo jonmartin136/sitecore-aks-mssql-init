@@ -1,0 +1,27 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "[-]sitecore_security_database\\CreateUser.Core.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_security_database\\Sitecore.Security_DropObjectsOnCore.sql"
+        ],
+        "variables": {
+            "username": "",
+            "password": ""
+        }
+    },
+    "Sitecore.Security": {
+        "scripts": [
+            "sitecore_security_database\\CreateUserServerLogin.Security.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_security_database\\CreateUser.Security.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_security_database\\Sitecore.Security_DropObjectsOnSecurity.sql"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Security",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Core.dacpac"
+        ]
+    }
+}
