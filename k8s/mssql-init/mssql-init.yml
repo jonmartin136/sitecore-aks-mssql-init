@@ -1,0 +1,606 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mssql-init
+  namespace: sitecore
+spec:
+  template:
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector:
+        kubernetes.azure.com/agentpool: win02
+        kubernetes.azure.com/mode: user
+        kubernetes.io/os: windows
+      containers:
+      - name: mssql-init
+        image: sitecore-xp1-mssql-init
+        imagePullPolicy: Always
+        env:
+        - name: SITECORE_ADMIN_USER
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-admin-username
+        - name: SITECORE_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-admin-password
+        - name: SITECORE_ADMIN_ENHANCED_HASH_ALGORITHM
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-sitecore-admin_enhanced_hash_algorithm
+        - name: SQL_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: azure-sqlserver-hostname
+        - name: SQL_ADMIN_LOGIN
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: azure-sqlserver-admin-login
+        - name: SQL_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: azure-sqlserver-admin-password
+        - name: SQL_ELASTIC_POOL_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-sqlserver-elastic-pool-name
+        - name: DATABASES_TO_DEPLOY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-databases-to-deploy
+        - name: DATABASES_TO_EXCLUDE
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-databases-to-exclude
+        - name: DATABASES_ENABLE_CONTAINMENT
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-databases-enable-containment
+        - name: DATABASES_SCRIPTS
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-databases-scripts
+        - name: SECURITY_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-mssqlinit-security-database
+        - name: AAD_SUPPORTGROUP_DISPLAYNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: azure-aad-support-group-name
+        - name: AAD_SUPPORTGROUP_SID
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: azure-aad-support-group-sid
+        - name: COLLECTION_SHARDMAPMANAGER_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-database-name
+        - name: COLLECTION_SHARDMAPMANAGER_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-database-username
+        - name: COLLECTION_SHARDMAPMANAGER_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-database-password
+        - name: COLLECTION_SHARDMAPMANAGER_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-database-username-secondary
+        - name: COLLECTION_SHARDMAPMANAGER_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-database-password-secondary
+        - name: COLLECTION_SHARD_DATABASE_NAME_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-shard-prefix-name
+        - name: COLLECTION_SHARD_DATABASE_NAME_SUFFIX
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-shard-suffix-name
+        - name: COLLECTION_SHARD_MAX
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-collection-shardmapmanager-shard-max
+        - name: CORE_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-core-database-name
+        - name: CORE_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-core-database-username
+        - name: CORE_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-core-database-password
+        - name: CORE_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-core-database-username-secondary
+        - name: CORE_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-core-database-password-secondary
+        - name: EXM_MASTER_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-exm-master-database-name
+        - name: EXM_MASTER_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-exm-master-database-username
+        - name: EXM_MASTER_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-exm-master-database-password
+        - name: EXM_MASTER_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-exm-master-database-username-secondary
+        - name: EXM_MASTER_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-exm-master-database-password-secondary
+        - name: EXPERIENCEFORMS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-experienceforms-database-name
+        - name: EXPERIENCEFORMS_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-experienceforms-database-username
+        - name: EXPERIENCEFORMS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-experienceforms-database-password
+        - name: EXPERIENCEFORMS_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-experienceforms-database-username-secondary
+        - name: EXPERIENCEFORMS_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-experienceforms-database-password-secondary
+        - name: MARKETING_AUTOMATION_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-marketing-automation-database-name
+        - name: MARKETING_AUTOMATION_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-marketing-automation-database-username
+        - name: MARKETING_AUTOMATION_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-marketing-automation-database-password
+        - name: MARKETING_AUTOMATION_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-marketing-automation-database-username-secondary
+        - name: MARKETING_AUTOMATION_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-marketing-automation-database-password-secondary
+        - name: MASTER_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-master-database-name
+        - name: MASTER_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-master-database-username
+        - name: MASTER_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-master-database-password
+        - name: MASTER_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-master-database-username-secondary
+        - name: MASTER_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-master-database-password-secondary
+        - name: MESSAGING_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-messaging-database-name
+        - name: MESSAGING_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-messaging-database-username
+        - name: MESSAGING_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-messaging-database-password
+        - name: MESSAGING_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-messaging-database-username-secondary
+        - name: MESSAGING_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-messaging-database-password-secondary
+        - name: PROCESSING_ENGINE_STORAGE_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-storage-database-name
+        - name: PROCESSING_ENGINE_STORAGE_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-storage-database-username
+        - name: PROCESSING_ENGINE_STORAGE_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-storage-database-password
+        - name: PROCESSING_ENGINE_STORAGE_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-storage-database-username-secondary
+        - name: PROCESSING_ENGINE_STORAGE_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-storage-database-password-secondary
+        - name: PROCESSING_ENGINE_TASKS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-tasks-database-name
+        - name: PROCESSING_ENGINE_TASKS_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-tasks-database-username
+        - name: PROCESSING_ENGINE_TASKS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-tasks-database-password
+        - name: PROCESSING_ENGINE_TASKS_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-tasks-database-username-secondary
+        - name: PROCESSING_ENGINE_TASKS_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-engine-tasks-database-password-secondary
+        - name: PROCESSING_POOLS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-pools-database-name
+        - name: PROCESSING_POOLS_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-pools-database-username
+        - name: PROCESSING_POOLS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-pools-database-password
+        - name: PROCESSING_POOLS_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-pools-database-username-secondary
+        - name: PROCESSING_POOLS_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-pools-database-password-secondary
+        - name: PROCESSING_TASKS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-tasks-database-name
+        - name: PROCESSING_TASKS_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-tasks-database-username
+        - name: PROCESSING_TASKS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-tasks-database-password
+        - name: PROCESSING_TASKS_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-tasks-database-username-secondary
+        - name: PROCESSING_TASKS_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-processing-tasks-database-password-secondary
+        - name: REFERENCE_DATA_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reference-data-database-name
+        - name: REFERENCE_DATA_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reference-data-database-username
+        - name: REFERENCE_DATA_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reference-data-database-password
+        - name: REFERENCE_DATA_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reference-data-database-username-secondary
+        - name: REFERENCE_DATA_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reference-data-database-password-secondary
+        - name: REPORTING_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reporting-database-name
+        - name: REPORTING_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reporting-database-username
+        - name: REPORTING_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reporting-database-password
+        - name: REPORTING_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reporting-database-username-secondary
+        - name: REPORTING_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-reporting-database-password-secondary
+        - name: SECURITY_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-security-database-name
+        - name: SECURITY_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-security-database-username
+        - name: SECURITY_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-security-database-password
+        - name: SECURITY_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-security-database-username-secondary
+        - name: SECURITY_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-security-database-password-secondary
+        - name: WEB_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web-database-name
+        - name: WEB_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web-database-username
+        - name: WEB_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web-database-password
+        - name: WEB_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web-database-username-secondary
+        - name: WEB_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web-database-password-secondary
+        - name: GEOREPLICATION_WEB1_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web1-database-name
+        - name: GEOREPLICATION_WEB1_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web1-database-username
+        - name: GEOREPLICATION_WEB1_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web1-database-password
+        - name: GEOREPLICATION_WEB1_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web1-database-username-secondary
+        - name: GEOREPLICATION_WEB1_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web1-database-password-secondary
+        - name: GEOREPLICATION_WEB2_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web2-database-name
+        - name: GEOREPLICATION_WEB2_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web2-database-username
+        - name: GEOREPLICATION_WEB2_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web2-database-password
+        - name: GEOREPLICATION_WEB2_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web2-database-username-secondary
+        - name: GEOREPLICATION_WEB2_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-web2-database-password-secondary
+        - name: GEOREPLICATION_WEBSHARED_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-webshared-database-name
+        - name: GEOREPLICATION_WEBSHARED_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-webshared-database-username
+        - name: GEOREPLICATION_WEBSHARED_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-webshared-database-password
+        - name: GEOREPLICATION_WEBSHARED_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-webshared-database-username-secondary
+        - name: GEOREPLICATION_WEBSHARED_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-georeplication-webshared-database-password-secondary
+        - name: WEB1_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web1-database-name
+        - name: WEB1_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web1-database-username
+        - name: WEB1_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web1-database-password
+        - name: WEB1_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web1-database-username-secondary
+        - name: WEB1_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web1-database-password-secondary
+        - name: WEB2_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web2-database-name
+        - name: WEB2_DATABASE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web2-database-username
+        - name: WEB2_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web2-database-password
+        - name: WEB2_DATABASE_USERNAME_SECONDARY
+          valueFrom:
+            configMapKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web2-database-username-secondary
+        - name: WEB2_DATABASE_PASSWORD_SECONDARY
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-mssql-init
+              key: sitecore-web2-database-password-secondary
+      restartPolicy: Never
+  backoffLimit: 5
