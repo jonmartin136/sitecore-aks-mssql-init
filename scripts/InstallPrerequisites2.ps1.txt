@@ -1,0 +1,8 @@
+$powershellMsi = ('PowerShell-{0}-win-x64.msi' -F ($powershellVersion = '7.2.4'))
+Invoke-WebRequest -Uri ('https://github.com/PowerShell/PowerShell/releases/download/v{0}/{1}' -F $powershellVersion, $powershellMsi) -UseBasicParsing -OutFile $powershellMsi
+if (-not (Test-Path -Path $powershellMsi)) {
+  Write-Error -Message ('File "{0}" not found.' -F $powershellMsi) -ErrorAction Stop
+}
+Start-Process -NoNewWindow -Wait msiexec.exe -ArgumentList /i, $powershellMsi, /quiet, 'ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=0', 'ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=0', 'ENABLE_PSREMOTING=0', 'REGISTER_MANIFEST=1', 'USE_MU=0', 'ENABLE_MU=0'
+Remove-Item -Path $powershellMsi -Force
+$env:Path += ";${env:ProgramFiles}\PowerShell\7"

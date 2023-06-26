@@ -1,0 +1,82 @@
+{
+    "Sitecore.GeoReplication.Web1": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename",
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.GeoReplication.Web1",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    },
+    "Sitecore.GeoReplication.Web2": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename",
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.GeoReplication.Web2",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    },
+    "Sitecore.GeoReplication.WebShared": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename",
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.GeoReplication.WebShared",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    },
+    "Sitecore.Web1": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename",
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Web1",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    },
+    "Sitecore.Web2": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "sitecore_sql_database_compatibility_level\\compatibility_level_web.sql:DatabaseName=databasename",
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Web2",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    }
+}

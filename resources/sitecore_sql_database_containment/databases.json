@@ -1,0 +1,80 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_core.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Exm.Master": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_exmmaster.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.ExperienceForms": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_experienceforms.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.MarketingAutomation": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_marketingautomation.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Master": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_master.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Messaging": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_messaging.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Engine.Storage": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_processingenginestorage.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Engine.Tasks": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_processingenginetasks.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Pools": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_processingpools.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Processing.Tasks": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_processingtasks.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.ReferenceData": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_referencedata.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Reporting": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_reporting.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Security": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_security.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Web": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_web.sql:DatabaseName=databasename"
+        ]
+    },
+    "Sitecore.Xdb.Collection.ShardMapManager": {
+        "scripts": [
+            "sitecore_sql_database_containment\\containment_xdbcollectionshardmapmanager.sql:DatabaseName=databasename"
+        ],
+        "shard_scripts": [
+            "sitecore_sql_database_containment\\containment_xdbcollectionshard.sql:DatabaseName=databasename"
+        ]
+    }
+}

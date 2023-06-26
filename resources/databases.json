@@ -1,0 +1,216 @@
+{
+    "Sitecore.Core": {
+        "scripts": [
+            "CreateUserServerLogin.Core.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Core.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Core",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Core.dacpac"
+        ]
+    },
+    "Sitecore.Exm.Master": {
+        "scripts": [
+            "CreateUserServerLogin.ExmMaster.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.ExmMaster.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Exm.Master",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Exm.master.dacpac"
+        ]
+    },
+    "Sitecore.ExperienceForms": {
+        "scripts": [
+            "CreateUserServerLogin.ExperienceForms.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.ExperienceForms.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.ExperienceForms",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Experienceforms.dacpac"
+        ]
+    },
+    "Sitecore.MarketingAutomation": {
+        "scripts": [
+            "CreateUserServerLogin.MarketingAutomation.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.MarketingAutomation.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.MarketingAutomation",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Marketingautomation.dacpac"
+        ]
+    },
+    "Sitecore.Master": {
+        "scripts": [
+            "CreateUserServerLogin.Master.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Master.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Master",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Master.dacpac"
+        ]
+    },
+    "Sitecore.Messaging": {
+        "scripts": [
+            "createuser_serverlogin_text_messaging.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "createuser_text_messaging.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Messaging",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Messaging.dacpac"
+        ]
+    },
+    "Sitecore.Processing.Engine.Storage": {
+        "scripts": [
+            "createuser_serverlogin_text_processingenginestorage.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "createuser_text_processingenginestorage.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Processing.Engine.Storage",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Processing.Engine.Storage.dacpac"
+        ]
+    },
+    "Sitecore.Processing.Engine.Tasks": {
+        "scripts": [
+            "createuser_serverlogin_text_processingenginetasks.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "createuser_text_processingenginetasks.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Processing.Engine.Tasks",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Processing.Engine.Tasks.dacpac"
+        ]
+    },
+    "Sitecore.Processing.Pools": {
+        "scripts": [
+            "CreateUserServerLogin.ProcessingPools.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.ProcessingPools.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Processing.Pools",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "collectiondeployment\\Sitecore.Processing.pools.dacpac"
+        ]
+    },
+    "Sitecore.Processing.Tasks": {
+        "scripts": [
+            "CreateUserServerLogin.ProcessingTasks.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.ProcessingTasks.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Processing.Tasks",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Processing.tasks.dacpac"
+        ]
+    },
+    "Sitecore.ReferenceData": {
+        "scripts": [
+            "CreateUserServerLogin.ReferenceData.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.ReferenceData.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.ReferenceData",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Referencedata.dacpac"
+        ]
+    },
+    "Sitecore.Reporting": {
+        "scripts": [
+            "createuser_serverlogin_text_reporting.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "createuser_text_reporting.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Reporting",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Reporting.dacpac"
+        ]
+    },
+    "Sitecore.Security": {
+        "scripts": [
+            "SetSitecoreAdminPassword.sql:SitecoreAdminUserName=sitecoreadminusername SitecoreAdminUserPassword=sitecoreadminpassword"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Core",
+            "sitecoreadminusername": "",
+            "sitecoreadminpassword": ""
+        },
+        "dacpacs": [
+        ]
+    },
+    "Sitecore.Web": {
+        "scripts": [
+            "CreateUserServerLogin.Web.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "CreateUser.Web.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Web",
+            "username": "",
+            "password": ""
+        },
+        "dacpacs": [
+            "Sitecore.Web.dacpac"
+        ]
+    },
+    "Sitecore.Xdb.Collection.ShardMapManager": {
+        "scripts": [
+            "collectiondeployment\\CreateShardApplicationDatabaseServerLogin.sql:UserName=username UserPassword=password DatabaseName=databasename",
+            "collectiondeployment\\CreateShardManagerApplicationDatabaseUser.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "shard_scripts": [
+            "collectiondeployment\\CreateShardApplicationDatabaseUser.sql:UserName=username UserPassword=password DatabaseName=databasename"
+        ],
+        "variables": {
+            "databasename": "Sitecore.Xdb.Collection.ShardMapManager",
+            "username": "",
+            "password": "",
+            "shardmax": "2",
+            "sharddatabasenameprefix": "Sitecore.Xdb.Collection.Shard",
+            "sharddatabasenamesuffix": ""
+        },
+        "dacpacs": [
+            "Sitecore.Xdb.Collection.Database.Sql.dacpac"
+        ]
+    }
+}
